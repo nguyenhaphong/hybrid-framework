@@ -11,7 +11,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Login_01_Register_And_Login_Repeat {
+import commons.BasePage;
+
+public class Level_02_Register_Login_Base_Page_1 extends BasePage {
 	WebDriver driver;
 	String username, password, loginPageUrl;
 	String projectPath = System.getProperty("user.dir");
@@ -23,39 +25,32 @@ public class Login_01_Register_And_Login_Repeat {
 		driver.get("https://demo.guru99.com/v4/index.php");
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		
-		loginPageUrl = driver.getCurrentUrl();
 	}
 	
 	@Test
 	public void Login_01_Register_To_System() {
-		driver.findElement(By.xpath("//a[text()='here']")).click();
-		
-		driver.findElement(By.xpath("//input[@name='emailid']")).sendKeys(getRandomEmail());
-		
-		driver.findElement(By.xpath("//input[@name='btnLogin']")).click();
-		
-		username = driver.findElement(By.xpath("//td[text()='User ID :']/following-sibling::td")).getText();
-		
-		password = driver.findElement(By.xpath("//td[text()='Password :']/following-sibling::td")).getText();
+		loginPageUrl = getPageUrl(driver);
+		clickToElement(driver, "//a[text()='here']");
+		sendKeyToElement(driver, "//input[@name='emailid']", getRandomEmail());
+		clickToElement(driver, "//input[@name='btnLogin']");
+		username = getElementText(driver, "//td[text()='User ID :']/following-sibling::td");
+		password = getElementText(driver, "//td[text()='Password :']/following-sibling::td");
 		
 	}
 	
 	@Test
 	public void Login_02_Login_To_System() {
-		driver.get(loginPageUrl);
-		
-		driver.findElement(By.xpath("//input[@name='uid']")).sendKeys(username);
-		driver.findElement(By.xpath("//input[@name='password']")).sendKeys(password);
-		
-		driver.findElement(By.xpath("//input[@name='btnLogin']")).click();
-		
-		String welcomeMessage = driver.findElement(By.cssSelector("marquee.heading3")).getText();
-		
-		Assert.assertEquals(welcomeMessage, "Welcome To Manager's Page of Guru99 Bank");
+		openPageUrl(driver, loginPageUrl);
+		sendKeyToElement(driver, "//input[@name='uid']", username);
+		sendKeyToElement(driver, "//input[@name='password']", password);
+		clickToElement(driver, "//input[@name='btnLogin']");
+		Assert.assertEquals(getElementText(driver, "//marquee[@class='heading3']"), "Welcome To Manager's Page of Guru99 Bank");
+
 	}
 	
 	@AfterClass
 	public void cleanBrowser() {
+		driver.quit();
 		
 	}
 	
