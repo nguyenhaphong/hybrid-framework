@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Run on FIREFOX</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>2/0/2</td>
 </tr><tr>
-<td>Started on:</td><td>Sat Oct 16 21:02:39 ICT 2021</td>
+<td>Started on:</td><td>Sun Oct 17 10:25:38 ICT 2021</td>
 </tr>
-<tr><td>Total time:</td><td>16 seconds (16947 ms)</td>
+<tr><td>Total time:</td><td>24 seconds (24750 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,67 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.bankguru.login.Level_02_Register_Login_Base_Page_1.initBrowser()'><b>initBrowser</b><br>Test class: com.bankguru.login.Level_02_Register_Login_Base_Page_1</td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	Cannot instantiate the type BasePage
+
+	at com.bankguru.login.Level_02_Register_Login_Base_Page_1.initBrowser(Level_02_Register_Login_Base_Page_1.java:29)
+... Removed 26 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1690481990", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1690481990'><pre>java.lang.Error: Unresolved compilation problem: 
+	Cannot instantiate the type BasePage
+
+	at com.bankguru.login.Level_02_Register_Login_Base_Page_1.initBrowser(Level_02_Register_Login_Base_Page_1.java:29)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:168)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:105)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.bankguru.login.Level_02_Register_Login_Base_Page_1@7a8c8dcf</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.bankguru.login.Level_02_Register_Login_Base_Page_1.cleanBrowser()'><b>cleanBrowser</b><br>Test class: com.bankguru.login.Level_02_Register_Login_Base_Page_1</td>
+<td></td>
+<td>0</td>
+<td>com.bankguru.login.Level_02_Register_Login_Base_Page_1@7a8c8dcf</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -75,15 +136,103 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.bankguru.login.Login_01_Register_And_Login_Repeat.Login_01_Register_To_System()'><b>Login_01_Register_To_System</b><br>Test class: com.bankguru.login.Login_01_Register_And_Login_Repeat</td>
+<td title='com.bankguru.login.Level_01_Register_And_Login_Repeat_Yourself.Login_01_Register_To_System()'><b>Login_01_Register_To_System</b><br>Test class: com.bankguru.login.Level_01_Register_And_Login_Repeat_Yourself</td>
 <td></td>
-<td>11</td>
-<td>com.bankguru.login.Login_01_Register_And_Login_Repeat@1ce24091</td></tr>
+<td>18</td>
+<td>com.bankguru.login.Level_01_Register_And_Login_Repeat_Yourself@5dda768f</td></tr>
 <tr>
-<td title='com.bankguru.login.Login_01_Register_And_Login_Repeat.Login_02_Login_To_System()'><b>Login_02_Login_To_System</b><br>Test class: com.bankguru.login.Login_01_Register_And_Login_Repeat</td>
+<td title='com.bankguru.login.Level_01_Register_And_Login_Repeat_Yourself.Login_02_Login_To_System()'><b>Login_02_Login_To_System</b><br>Test class: com.bankguru.login.Level_01_Register_And_Login_Repeat_Yourself</td>
 <td></td>
-<td>2</td>
-<td>com.bankguru.login.Login_01_Register_And_Login_Repeat@1ce24091</td></tr>
+<td>3</td>
+<td>com.bankguru.login.Level_01_Register_And_Login_Repeat_Yourself@5dda768f</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.bankguru.login.Level_02_Register_Login_Base_Page_1.Login_01_Register_To_System()'><b>Login_01_Register_To_System</b><br>Test class: com.bankguru.login.Level_02_Register_Login_Base_Page_1</td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	Cannot instantiate the type BasePage
+
+	at com.bankguru.login.Level_02_Register_Login_Base_Page_1.initBrowser(Level_02_Register_Login_Base_Page_1.java:29)
+... Removed 26 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1556461159", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1556461159'><pre>java.lang.Error: Unresolved compilation problem: 
+	Cannot instantiate the type BasePage
+
+	at com.bankguru.login.Level_02_Register_Login_Base_Page_1.initBrowser(Level_02_Register_Login_Base_Page_1.java:29)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:168)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:105)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.bankguru.login.Level_02_Register_Login_Base_Page_1@7a8c8dcf</td></tr>
+<tr>
+<td title='com.bankguru.login.Level_02_Register_Login_Base_Page_1.Login_02_Login_To_System()'><b>Login_02_Login_To_System</b><br>Test class: com.bankguru.login.Level_02_Register_Login_Base_Page_1</td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	Cannot instantiate the type BasePage
+
+	at com.bankguru.login.Level_02_Register_Login_Base_Page_1.initBrowser(Level_02_Register_Login_Base_Page_1.java:29)
+... Removed 26 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1642973315", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1642973315'><pre>java.lang.Error: Unresolved compilation problem: 
+	Cannot instantiate the type BasePage
+
+	at com.bankguru.login.Level_02_Register_Login_Base_Page_1.initBrowser(Level_02_Register_Login_Base_Page_1.java:29)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:168)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:105)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.bankguru.login.Level_02_Register_Login_Base_Page_1@7a8c8dcf</td></tr>
 </table><p>
 </body>
 </html>

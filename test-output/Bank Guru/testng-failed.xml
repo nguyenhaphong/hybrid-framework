@@ -3,14 +3,14 @@
 <suite name="Failed suite [Bank Guru]">
   <test thread-count="5" name="Run on FIREFOX(failed)">
     <classes>
-      <class name="com.bankguru.login.Login_01_Register_And_Login_Repeat">
+      <class name="com.bankguru.login.Level_02_Register_Login_Base_Page_1">
         <methods>
+          <include name="cleanBrowser"/>
           <include name="initBrowser"/>
           <include name="Login_02_Login_To_System"/>
-          <include name="cleanBrowser"/>
           <include name="Login_01_Register_To_System"/>
         </methods>
-      </class> <!-- com.bankguru.login.Login_01_Register_And_Login_Repeat -->
+      </class> <!-- com.bankguru.login.Level_02_Register_Login_Base_Page_1 -->
     </classes>
   </test> <!-- Run on FIREFOX(failed) -->
 </suite> <!-- Failed suite [Bank Guru] -->
