@@ -1,16 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Bank Guru]">
+<suite name="Failed suite [Live Guru]">
   <test thread-count="5" name="Run on FIREFOX(failed)">
+    <parameter name="browser" value="firefox"/>
     <classes>
-      <class name="com.bankguru.login.Login_01_Register_And_Login_Repeat">
+      <class name="com.liveguru.login.Level_04_Register_Login_Multiple_Browser">
         <methods>
-          <include name="initBrowser"/>
-          <include name="Login_02_Login_To_System"/>
-          <include name="cleanBrowser"/>
-          <include name="Login_01_Register_To_System"/>
+          <include name="Login_05_Incorrect_Password"/>
+          <include name="beforeClass"/>
+          <include name="Login_03_Invalid_Password"/>
+          <include name="Login_01_Empty_Email_And_Password"/>
+          <include name="Login_06_Valid_Email_And_Password"/>
+          <include name="afterClass"/>
+          <include name="Login_04_Incorrect_Email"/>
+          <include name="Login_02_Invalid_Email"/>
         </methods>
-      </class> <!-- com.bankguru.login.Login_01_Register_And_Login_Repeat -->
+      </class> <!-- com.liveguru.login.Level_04_Register_Login_Multiple_Browser -->
     </classes>
   </test> <!-- Run on FIREFOX(failed) -->
-</suite> <!-- Failed suite [Bank Guru] -->
+  <test thread-count="5" name="Run on CHROME(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="com.liveguru.login.Level_04_Register_Login_Multiple_Browser">
+        <methods>
+          <include name="Login_05_Incorrect_Password"/>
+          <include name="beforeClass"/>
+          <include name="Login_03_Invalid_Password"/>
+          <include name="Login_01_Empty_Email_And_Password"/>
+          <include name="Login_06_Valid_Email_And_Password"/>
+          <include name="afterClass"/>
+          <include name="Login_04_Incorrect_Email"/>
+          <include name="Login_02_Invalid_Email"/>
+        </methods>
+      </class> <!-- com.liveguru.login.Level_04_Register_Login_Multiple_Browser -->
+    </classes>
+  </test> <!-- Run on CHROME(failed) -->
+  <test thread-count="5" name="Run on EDGE CHROMIUM(failed)">
+    <parameter name="browser" value="chromium"/>
+    <classes>
+      <class name="com.liveguru.login.Level_04_Register_Login_Multiple_Browser">
+        <methods>
+          <include name="Login_05_Incorrect_Password"/>
+          <include name="beforeClass"/>
+          <include name="Login_03_Invalid_Password"/>
+          <include name="Login_01_Empty_Email_And_Password"/>
+          <include name="Login_06_Valid_Email_And_Password"/>
+          <include name="afterClass"/>
+          <include name="Login_04_Incorrect_Email"/>
+          <include name="Login_02_Invalid_Email"/>
+        </methods>
+      </class> <!-- com.liveguru.login.Level_04_Register_Login_Multiple_Browser -->
+    </classes>
+  </test> <!-- Run on EDGE CHROMIUM(failed) -->
+</suite> <!-- Failed suite [Live Guru] -->
