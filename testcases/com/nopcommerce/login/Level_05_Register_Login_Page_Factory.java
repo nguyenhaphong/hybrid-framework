@@ -12,9 +12,9 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.nopCommerce.HomePageObject;
-import pageObjects.nopCommerce.LoginPageObject;
-import pageObjects.nopCommerce.RegisterPageObject;
+import pageFactory.nopCommerce.HomePageObject;
+import pageFactory.nopCommerce.LoginPageObject;
+import pageFactory.nopCommerce.RegisterPageObject;
 
 public class Level_05_Register_Login_Page_Factory extends BaseTest {
 	WebDriver driver;
@@ -104,12 +104,6 @@ public class Level_05_Register_Login_Page_Factory extends BaseTest {
 	public void cleanBrowser() {
 		driver.quit();
 		
-	}
-	
-	public String getRandomEmail() {
-		Random rand = new Random();
-		rand.nextInt(99999);
-		return "testing" + rand.nextInt(99999) + "@gmail.com";
 	}
 	
 	HomePageObject homePage;

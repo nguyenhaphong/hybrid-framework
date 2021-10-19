@@ -1,32 +1,45 @@
 package pageFactory.nopCommerce;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-import commons.BasePage;
-import pageUIs.nopCommerce.HomePageUI;
+import commons.BasePageFactory;
 
-public class HomePageObject extends BasePage {
-	private WebDriver driver;
+public class HomePageObject extends BasePageFactory {
+	WebDriver driver;
+	
+	// UI
+	@FindBy(id="nivo-slider")
+	WebElement homePageSlider;
+	
+	@FindBy(id="ico-register")
+	WebElement registerLink;
+	
+	@FindBy(id="ico-login")
+	WebElement loginLink;
 	
 	public HomePageObject(WebDriver driver) {
-		this.driver = driver;	
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
-
+	
+	// Action
 	public void clickToRegisterLink() {
-		waitElemenClickable(driver, HomePageUI.REGISTER_LINK);
-		clickToElement(driver, HomePageUI.REGISTER_LINK);
-		
+		waitElemenClickable(driver, registerLink);
+		clickToElement(driver, registerLink);	
 	}
 
 	public void clickToLoginLink() {
-		waitElemenClickable(driver, HomePageUI.LOGIN_LINK);
-		clickToElement(driver, HomePageUI.LOGIN_LINK);
+		waitElemenClickable(driver, loginLink);
+		clickToElement(driver, loginLink);
 		
 	}
 
 	public boolean isHomePageSliderDisplayed() {
-		waitForElementVisible(driver, HomePageUI.HOME_PAGE_SLIDER);
-		return isElementDisplayed(driver, HomePageUI.HOME_PAGE_SLIDER);
+		waitForElementVisible(driver, homePageSlider);
+		return isElementDisplayed(driver, homePageSlider);
 	}
 
 }
