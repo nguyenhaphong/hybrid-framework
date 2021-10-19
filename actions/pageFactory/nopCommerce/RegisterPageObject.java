@@ -73,7 +73,7 @@ public class RegisterPageObject extends BasePageFactory {
 	}
 
 	public void clickToRegisterButton() {
-		waitForAllElementVisible(driver, registerButton);
+		waitForElementVisible(driver, registerButton);
 		clickToElement(driver, registerButton);
 	}
 
