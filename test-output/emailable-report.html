@@ -9,52 +9,12 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="7">Nop Commerce</th></tr>
-<tr><td><a href="#t0">Run on FIREFOX</a></td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">81,313</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Run on FIREFOX</a></td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num">20,926</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Nop Commerce</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Run on FIREFOX &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">com.nopcommerce.login.Level_06_Register_Login_Page_Generator</td><td><a href="#m0">Login_01_Register_To_System</a></td><td rowspan="1">1634639907411</td><td rowspan="1">32915</td></tr><tr class="failedeven"><td><a href="#m1">Login_02_Login_To_System</a></td><td rowspan="1">1634639940328</td><td rowspan="1">40536</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Nop Commerce</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Run on FIREFOX &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">com.nopcommerce.login.Level_07_Register_Login_Page_Switch_Page</td><td><a href="#m0">Login_01_Register_To_System</a></td><td rowspan="1">1634718502001</td><td rowspan="1">6395</td></tr><tr class="passedeven"><td><a href="#m1">Login_02_Login_To_System</a></td><td rowspan="1">1634718508398</td><td rowspan="1">2539</td></tr><tr class="passedeven"><td><a href="#m2">Login_03_Switch_Page_At_Footer</a></td><td rowspan="1">1634718510938</td><td rowspan="1">3745</td></tr></tbody>
 </table>
-<h2>Run on FIREFOX</h2><h3 id="m0">com.nopcommerce.login.Level_06_Register_Login_Page_Generator#Login_01_Register_To_System</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to no longer be visible: By.xpath: //div[@class=&apos;result&apos; and text()=&apos;Your registration completed&apos;] (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
-System info: host: &apos;DESKTOP-2ILKCN7&apos;, ip: &apos;192.168.11.31&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;16.0.2&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 93.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20210927210923, moz:geckodriverVersion: 0.30.0, moz:headless: false, moz:processID: 7616, moz:profile: C:\Users\ADMIN\AppData\Loca..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 1b6c27a5-438b-4f7b-b39c-d6a868256fda
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-	at commons.BasePage.waitForElementInvisible(BasePage.java:345)
-	at pageObjects.nopCommerce.RegisterPageObject.isSuccessMassageDisplayed(RegisterPageObject.java:57)
-	at com.nopcommerce.login.Level_06_Register_Login_Page_Generator.Login_01_Register_To_System(Level_06_Register_Login_Page_Generator.java:67)
-... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">com.nopcommerce.login.Level_06_Register_Login_Page_Generator#Login_02_Login_To_System</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //a[@class=&apos;ico-login&apos;] (tried for 30 second(s) with 500 milliseconds interval)
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-	at commons.BasePage.waitElemenClickable(BasePage.java:355)
-	at pageObjects.nopCommerce.HomePageObject.clickToLoginLink(HomePageObject.java:23)
-	at com.nopcommerce.login.Level_06_Register_Login_Page_Generator.Login_02_Login_To_System(Level_06_Register_Login_Page_Generator.java:79)
-Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: //a[@class=&apos;ico-login&apos;]
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
-System info: host: &apos;DESKTOP-2ILKCN7&apos;, ip: &apos;192.168.11.31&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;16.0.2&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 93.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20210927210923, moz:geckodriverVersion: 0.30.0, moz:headless: false, moz:processID: 7616, moz:profile: C:\Users\ADMIN\AppData\Loca..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 1b6c27a5-438b-4f7b-b39c-d6a868256fda
-*** Element info: {Using=xpath, value=//a[@class=&apos;ico-login&apos;]}
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
-	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
-	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:641)
-	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:638)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-	... 28 more
-... Removed 30 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Run on FIREFOX</h2><h3 id="m0">com.nopcommerce.login.Level_07_Register_Login_Page_Switch_Page#Login_01_Register_To_System</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.nopcommerce.login.Level_07_Register_Login_Page_Switch_Page#Login_02_Login_To_System</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">com.nopcommerce.login.Level_07_Register_Login_Page_Switch_Page#Login_03_Switch_Page_At_Footer</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

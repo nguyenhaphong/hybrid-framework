@@ -54,7 +54,7 @@ public class RegisterPageObject extends BasePage {
 	}
 
 	public boolean isSuccessMassageDisplayed() {
-		waitForElementInvisible(driver, RegisterPageUI.SUCCESS_MESSGAGE);
+		waitForElementVisible(driver, RegisterPageUI.SUCCESS_MESSGAGE);
 		return isElementDisplayed(driver, RegisterPageUI.SUCCESS_MESSGAGE);
 	}
 

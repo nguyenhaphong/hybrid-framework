@@ -16,6 +16,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageObjects.nopCommerce.MyAccountPageObject;
+import pageObjects.nopCommerce.OrderPageObject;
+import pageObjects.nopCommerce.PageGeneratorManager;
+import pageObjects.nopCommerce.SearchPageObject;
+import pageUIs.nopCommerce.BasePageUI;
+
 public abstract class BasePage {
 	
 	public void openPageUrl (WebDriver driver, String pageUrl) {
@@ -358,7 +364,25 @@ public abstract class BasePage {
 	public void waitForAllElementVisible(WebDriver driver, String locator) {
 		explicitWait = new WebDriverWait(driver, timeout);
 		explicitWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(getByXpath(locator)));
-	}	
+	}
+	
+	public SearchPageObject openSearchPage(WebDriver driver) {
+		waitForElementVisible(driver, BasePageUI.SEARCH_PAGE_FOTTER);
+		clickToElement(driver, BasePageUI.SEARCH_PAGE_FOTTER);
+		return PageGeneratorManager.getSearchPage(driver);
+	}
+	
+	public MyAccountPageObject openMyAccountPage(WebDriver driver) {
+		waitElemenClickable(driver, BasePageUI.MY_ACCOUNT_PAGE_FOOTER);
+		clickToElement(driver, BasePageUI.MY_ACCOUNT_PAGE_FOOTER);
+		return PageGeneratorManager.getMyAccountPage(driver);
+	}
+	
+	public OrderPageObject openOrderPage(WebDriver driver) {
+		waitElemenClickable(driver, BasePageUI.ORDER_PAGE_FOOTER);
+		clickToElement(driver, BasePageUI.ORDER_PAGE_FOOTER);
+		return PageGeneratorManager.getOrderPage(driver);
+	}
 	
 	public void sleepInSecond(long timeout) {
 		try {
