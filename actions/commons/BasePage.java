@@ -127,11 +127,25 @@ public abstract class BasePage {
 		return By.xpath(locator);
 	}
 	
+	public String getDynamicLocator(String locator, String... params) {
+		return String.format(locator, (Object[])params);
+	}
+	
 	public void clickToElement (WebDriver driver, String locator) {
 		getElement(driver, locator).click();
 	}
 	
+	public void clickToElement (WebDriver driver, String locator, String... params) {
+		getElement(driver, getDynamicLocator(locator, params)).click();
+	}
+	
 	public void sendKeyToElement(WebDriver driver, String locator, String value) {
+		getElement(driver, locator).clear();
+		getElement(driver, locator).sendKeys(value);
+	}
+	
+	public void sendKeyToElement(WebDriver driver, String locator, String value, String... params) {
+		locator = getDynamicLocator(locator, params);
 		getElement(driver, locator).clear();
 		getElement(driver, locator).sendKeys(value);
 	}
@@ -190,6 +204,10 @@ public abstract class BasePage {
 		return getElement(driver, locator).getText();
 	}
 	
+	public String getElementText(WebDriver driver, String locator, String... params) {
+		return getElement(driver, getDynamicLocator(locator, params)).getText();
+	}
+	
 	public int countElementNumber(WebDriver driver, String locator) {
 		return getElements(driver, locator).size();
 	}
@@ -208,6 +226,10 @@ public abstract class BasePage {
 	
 	public boolean isElementDisplayed(WebDriver driver, String locator) {
 		return getElement(driver, locator).isDisplayed();
+	}
+	
+	public boolean isElementDisplayed(WebDriver driver, String locator, String... params) {
+		return getElement(driver, getDynamicLocator(locator, params)).isDisplayed();
 	}
 	
 	public boolean isElementEnabled(WebDriver driver, String locator) {
@@ -351,14 +373,29 @@ public abstract class BasePage {
 		explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(getByXpath(locator)));
 	}
 	
+	public void waitForElementInvisible(WebDriver driver, String locator, String... params) {
+		explicitWait = new WebDriverWait(driver, timeout);
+		explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(getByXpath(getDynamicLocator(locator, params))));
+	}
+	
 	public void waitForElementVisible(WebDriver driver, String locator) {
 		explicitWait = new WebDriverWait(driver, timeout);
 		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(getByXpath(locator)));
 	}
 	
+	public void waitForElementVisible(WebDriver driver, String locator, String... params) {
+		explicitWait = new WebDriverWait(driver, timeout);
+		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(getByXpath(getDynamicLocator(locator, params))));
+	}
+	
 	public void waitElemenClickable(WebDriver driver, String locator) {
 		explicitWait = new WebDriverWait(driver, timeout);
 		explicitWait.until(ExpectedConditions.elementToBeClickable(getByXpath(locator)));
+	}
+	
+	public void waitElemenClickable(WebDriver driver, String locator, String... params) {
+		explicitWait = new WebDriverWait(driver, timeout);
+		explicitWait.until(ExpectedConditions.elementToBeClickable(getByXpath(getDynamicLocator(locator, params))));
 	}
 	
 	public void waitForAllElementVisible(WebDriver driver, String locator) {
@@ -382,6 +419,26 @@ public abstract class BasePage {
 		waitElemenClickable(driver, BasePageUI.ORDER_PAGE_FOOTER);
 		clickToElement(driver, BasePageUI.ORDER_PAGE_FOOTER);
 		return PageGeneratorManager.getOrderPage(driver);
+	}
+	// 1 hàm cho cả 20 page
+	// Case 1 page < 10
+	public BasePage getFooterPageByName(WebDriver driver, String pageName) {
+		waitElemenClickable(driver, BasePageUI.DYNAMIC_PAGE_FOOTER, pageName);
+		clickToElement(driver, BasePageUI.DYNAMIC_PAGE_FOOTER, pageName);
+		
+		if(pageName.equals("Search")) {
+			return PageGeneratorManager.getSearchPage(driver);
+		} else if(pageName.equals("My account")) {
+			return PageGeneratorManager.getMyAccountPage(driver);
+		} else {
+			return PageGeneratorManager.getOrderPage(driver);
+		}
+	}
+	
+	// Case 2 - Muliple Page
+	public void openFooterPageByName(WebDriver driver, String pageName) {
+		waitElemenClickable(driver, BasePageUI.DYNAMIC_PAGE_FOOTER, pageName);
+		clickToElement(driver, BasePageUI.DYNAMIC_PAGE_FOOTER, pageName);
 	}
 	
 	public void sleepInSecond(long timeout) {
