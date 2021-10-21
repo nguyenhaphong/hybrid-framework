@@ -11,9 +11,9 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObject.liveguru.HomePageObject;
-import pageObject.liveguru.LoginPageObject;
-import pageObject.liveguru.MyDashboardPageObject;
+import pageObjects.liveguru.HomePageObject;
+import pageObjects.liveguru.LoginPageObject;
+import pageObjects.liveguru.MyDashboardPageObject;
 
 public class Level_04_Register_Login_Multiple_Browser extends BaseTest{
 	WebDriver driver;

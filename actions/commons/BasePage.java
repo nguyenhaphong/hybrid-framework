@@ -150,7 +150,12 @@ public abstract class BasePage {
 		getElement(driver, locator).sendKeys(value);
 	}
 	
-	public int getElementSize(WebDriver driver, String locator, String value) {
+	public int getElementSize(WebDriver driver, String locator) {
+		return getElements(driver, locator).size();
+	}
+	
+	public int getElementSize(WebDriver driver, String locator, String... params) {
+		locator = getDynamicLocator(locator, params);
 		return getElements(driver, locator).size();
 	}
 	
@@ -266,6 +271,17 @@ public abstract class BasePage {
 	public void dragAndDropElement(WebDriver driver, String sourceLocator, String targerLocator) {
 		action = new Actions(driver);
 		action.dragAndDrop(getElement(driver, sourceLocator), getElement(driver, targerLocator)).perform();
+	}
+	
+	public void pressKeyToElement(WebDriver driver, String locator, Keys key) {
+		action = new Actions(driver);
+		action.sendKeys(getElement(driver, locator), key).perform();
+	}
+	
+	public void pressKeyToElement(WebDriver driver, String locator, Keys key, String...params) {
+		action = new Actions(driver);
+		locator = getDynamicLocator(locator, params);
+		action.sendKeys(getElement(driver, locator), key).perform();
 	}
 	
 	public void sendKeyBoardToElement(WebDriver driver, String locator, Keys key) {

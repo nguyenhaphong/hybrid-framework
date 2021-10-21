@@ -1,45 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-10-20T08:28:14Z" name="Nop Commerce" finished-at="2021-10-20T08:28:35Z" duration-ms="20926">
+  <suite started-at="2021-10-21T10:46:37Z" name="DataTable" finished-at="2021-10-21T10:46:48Z" duration-ms="10573">
     <groups>
     </groups>
-    <test started-at="2021-10-20T08:28:14Z" name="Run on FIREFOX" finished-at="2021-10-20T08:28:35Z" duration-ms="20926">
-      <class name="com.nopcommerce.login.Level_07_Register_Login_Page_Switch_Page">
-        <test-method is-config="true" signature="beforeClass(java.lang.String, java.lang.String)[pri:0, instance:com.nopcommerce.login.Level_07_Register_Login_Page_Switch_Page@6c40365c]" started-at="2021-10-20T08:28:14Z" name="beforeClass" finished-at="2021-10-20T08:28:21Z" duration-ms="7530" status="PASS">
+    <test started-at="2021-10-21T10:46:37Z" name="Run on FIREFOX" finished-at="2021-10-21T10:46:48Z" duration-ms="10573">
+      <class name="com.jquerry.datatable.Level_09_Datatable">
+        <test-method is-config="true" signature="beforeClass(java.lang.String, java.lang.String)[pri:0, instance:com.jquerry.datatable.Level_09_Datatable@131ef10]" started-at="2021-10-21T10:46:37Z" name="beforeClass" finished-at="2021-10-21T10:46:41Z" duration-ms="4104" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[firefox]]>
+                <![CDATA[chrome]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[https://demo.nopcommerce.com/]]>
+                <![CDATA[https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method signature="Login_01_Register_To_System()[pri:0, instance:com.nopcommerce.login.Level_07_Register_Login_Page_Switch_Page@6c40365c]" started-at="2021-10-20T08:28:22Z" name="Login_01_Register_To_System" finished-at="2021-10-20T08:28:28Z" duration-ms="6395" status="PASS">
+        <test-method signature="Table_06_Click_To_Icon_At_Row()[pri:0, instance:com.jquerry.datatable.Level_09_Datatable@131ef10]" started-at="2021-10-21T10:46:41Z" name="Table_06_Click_To_Icon_At_Row" finished-at="2021-10-21T10:46:47Z" duration-ms="6183" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Login_01_Register_To_System -->
-        <test-method signature="Login_02_Login_To_System()[pri:0, instance:com.nopcommerce.login.Level_07_Register_Login_Page_Switch_Page@6c40365c]" started-at="2021-10-20T08:28:28Z" name="Login_02_Login_To_System" finished-at="2021-10-20T08:28:30Z" duration-ms="2539" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login_02_Login_To_System -->
-        <test-method signature="Login_03_Switch_Page_At_Footer()[pri:0, instance:com.nopcommerce.login.Level_07_Register_Login_Page_Switch_Page@6c40365c]" started-at="2021-10-20T08:28:30Z" name="Login_03_Switch_Page_At_Footer" finished-at="2021-10-20T08:28:34Z" duration-ms="3745" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login_03_Switch_Page_At_Footer -->
-        <test-method is-config="true" signature="cleanBrowser()[pri:0, instance:com.nopcommerce.login.Level_07_Register_Login_Page_Switch_Page@6c40365c]" started-at="2021-10-20T08:28:34Z" name="cleanBrowser" finished-at="2021-10-20T08:28:35Z" duration-ms="702" status="PASS">
+        </test-method> <!-- Table_06_Click_To_Icon_At_Row -->
+        <test-method is-config="true" signature="cleanBrowser()[pri:0, instance:com.jquerry.datatable.Level_09_Datatable@131ef10]" started-at="2021-10-21T10:46:47Z" name="cleanBrowser" finished-at="2021-10-21T10:46:48Z" duration-ms="272" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanBrowser -->
-      </class> <!-- com.nopcommerce.login.Level_07_Register_Login_Page_Switch_Page -->
+      </class> <!-- com.jquerry.datatable.Level_09_Datatable -->
     </test> <!-- Run on FIREFOX -->
-  </suite> <!-- Nop Commerce -->
+  </suite> <!-- DataTable -->
 </testng-results>

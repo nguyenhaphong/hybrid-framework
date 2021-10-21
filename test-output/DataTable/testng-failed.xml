@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [DataTable]">
+  <parameter name="url" value="https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/"/>
+  <test thread-count="5" name="Run on FIREFOX(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="com.jquerry.datatable.Level_09_Datatable">
+        <methods>
+          <include name="beforeClass"/>
+          <include name="cleanBrowser"/>
+          <include name="Table_06_Click_To_Icon_At_Row"/>
+        </methods>
+      </class> <!-- com.jquerry.datatable.Level_09_Datatable -->
+    </classes>
+  </test> <!-- Run on FIREFOX(failed) -->
+</suite> <!-- Failed suite [DataTable] -->

@@ -10,9 +10,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import pageObject.liveguru.HomePageObject;
-import pageObject.liveguru.LoginPageObject;
-import pageObject.liveguru.MyDashboardPageObject;
+import pageObjects.liveguru.HomePageObject;
+import pageObjects.liveguru.LoginPageObject;
+import pageObjects.liveguru.MyDashboardPageObject;
 
 public class Level_03_Register_Login_Page_Object {
 	WebDriver driver;
