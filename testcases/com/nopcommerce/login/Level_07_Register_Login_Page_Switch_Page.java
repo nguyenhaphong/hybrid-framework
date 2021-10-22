@@ -12,13 +12,13 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.nopCommerce.HomePageObject;
-import pageObjects.nopCommerce.LoginPageObject;
-import pageObjects.nopCommerce.MyAccountPageObject;
-import pageObjects.nopCommerce.OrderPageObject;
-import pageObjects.nopCommerce.PageGeneratorManager;
-import pageObjects.nopCommerce.RegisterPageObject;
-import pageObjects.nopCommerce.SearchPageObject;
+import pageObjects.user.nopCommerce.HomePageObject;
+import pageObjects.user.nopCommerce.LoginPageObject;
+import pageObjects.user.nopCommerce.MyAccountPageObject;
+import pageObjects.user.nopCommerce.OrderPageObject;
+import pageObjects.user.nopCommerce.PageGeneratorManager;
+import pageObjects.user.nopCommerce.RegisterPageObject;
+import pageObjects.user.nopCommerce.SearchPageObject;
 
 public class Level_07_Register_Login_Page_Switch_Page extends BaseTest {
 	WebDriver driver;

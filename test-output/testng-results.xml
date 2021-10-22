@@ -1,37 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="0" passed="0" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-10-21T10:46:37Z" name="DataTable" finished-at="2021-10-21T10:46:48Z" duration-ms="10573">
+  <suite started-at="2021-10-22T09:31:33Z" name="Admin Nop Commerce" finished-at="2021-10-22T09:31:33Z" duration-ms="5">
     <groups>
     </groups>
-    <test started-at="2021-10-21T10:46:37Z" name="Run on FIREFOX" finished-at="2021-10-21T10:46:48Z" duration-ms="10573">
-      <class name="com.jquerry.datatable.Level_09_Datatable">
-        <test-method is-config="true" signature="beforeClass(java.lang.String, java.lang.String)[pri:0, instance:com.jquerry.datatable.Level_09_Datatable@131ef10]" started-at="2021-10-21T10:46:37Z" name="beforeClass" finished-at="2021-10-21T10:46:41Z" duration-ms="4104" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeClass -->
-        <test-method signature="Table_06_Click_To_Icon_At_Row()[pri:0, instance:com.jquerry.datatable.Level_09_Datatable@131ef10]" started-at="2021-10-21T10:46:41Z" name="Table_06_Click_To_Icon_At_Row" finished-at="2021-10-21T10:46:47Z" duration-ms="6183" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Table_06_Click_To_Icon_At_Row -->
-        <test-method is-config="true" signature="cleanBrowser()[pri:0, instance:com.jquerry.datatable.Level_09_Datatable@131ef10]" started-at="2021-10-21T10:46:47Z" name="cleanBrowser" finished-at="2021-10-21T10:46:48Z" duration-ms="272" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- cleanBrowser -->
-      </class> <!-- com.jquerry.datatable.Level_09_Datatable -->
-    </test> <!-- Run on FIREFOX -->
-  </suite> <!-- DataTable -->
+    <test started-at="2021-10-22T09:31:33Z" name="Run on Chrome" finished-at="2021-10-22T09:31:33Z" duration-ms="5">
+    </test> <!-- Run on Chrome -->
+  </suite> <!-- Admin Nop Commerce -->
 </testng-results>

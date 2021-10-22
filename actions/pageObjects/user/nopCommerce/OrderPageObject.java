@@ -1,9 +1,9 @@
-package pageObjects.nopCommerce;
+package pageObjects.user.nopCommerce;
 
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import pageUIs.nopCommerce.OrderPageUI;
+import pageUIs.user.nopCommerce.OrderPageUI;
 
 public class OrderPageObject extends BasePage {
 	WebDriver driver;
