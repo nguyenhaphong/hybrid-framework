@@ -12,7 +12,9 @@ public class ProductDetailPageObject extends BasePage{
 	}
 
 	public void clickToExpandPanelByName(String string) {
-		// TODO Auto-generated method stub
+		// 1- get tag 1 attribute
+		// 2 - not contains get-plus
+		// 3 - nếu contanis click i
 		
 	}
 
