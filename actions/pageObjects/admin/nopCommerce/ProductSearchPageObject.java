@@ -3,6 +3,7 @@ package pageObjects.admin.nopCommerce;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
+import pageUIs.admin.nopCommerce.ProductSearchPageUI;
 
 public class ProductSearchPageObject extends BasePage{
 	WebDriver driver;
@@ -11,19 +12,21 @@ public class ProductSearchPageObject extends BasePage{
 		this.driver = driver;
 	}
 
-	public void enterToProductNameTextbox(String string) {
-		// TODO Auto-generated method stub
-		
+	public void enterToProductNameTextbox(String productName) {
+		waitForElementVisible(driver, ProductSearchPageUI.PRODUCT_NAME_TEXTBOX);
+		sendKeyToElement(driver, ProductSearchPageUI.PRODUCT_NAME_TEXTBOX, productName);
 	}
 
 	public void clickToSearchButton() {
-		// TODO Auto-generated method stub
+		waitElemenClickable(driver, ProductSearchPageUI.SEARCH_BUTTON);
+		clickToElement(driver, ProductSearchPageUI.SEARCH_BUTTON);
 		
 	}
 
-	public ProductDetailPageObject clickToEditButtonByProductName(String string) {
-		// TODO Auto-generated method stub
-		return null;
+	public ProductDetailPageObject clickToEditButtonByProductName(String productName) {
+		waitElemenClickable(driver, ProductSearchPageUI.EDIT_BUTTON_BY_PRODUCT_NAME, productName);
+		clickToElement(driver, ProductSearchPageUI.EDIT_BUTTON_BY_PRODUCT_NAME, productName);
+		return PageGeneratorManager.getProductDetailPage(driver);
 	}
 
 	public boolean isSuccessMessageDisplayed(String string) {

@@ -2,7 +2,6 @@ package pageUIs.admin.nopCommerce;
 
 public class ProductDetailPageUI {
 	public static final String TOOGLE_ICON_BY_NAME = "//div[@class='card-title' and contains(string(),'%s')]/following-sibling::div//i";
-	public static final String UPLOAD_FILE_BY_CARD_NAME = "//div[@id='product-%s']//input[@type='file']";
 	public static final String PICTURE_IMAGE_ADD_NEW = "//div[@class='upload-picture-block']//img[contains(@src,%s')]";
 	public static final String ALT_TEXTBOX_ADD_NEW ="//input[@id='AddPictureModel_OverrideAltAttribute']";
 	public static final String TITLE_TEXTBOX_ADD_NEW ="//input[@id='AddPictureModel_OverrideTitleAttribute']";

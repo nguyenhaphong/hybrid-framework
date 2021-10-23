@@ -16,6 +16,11 @@ import pageObjects.admin.nopCommerce.ProductSearchPageObject;
 
 public class Level_10_Admin_Upload_File extends BaseTest {
 	WebDriver driver;
+	String productName = "Adobe Photoshop CS4";
+	String productAvatarImg = "Anh.jpg";
+	String productAvatarAlt = "Avatar Alt";
+	String productAvatarTitle = "Avatar Title";
+	String productAvatarOrder = "1";
 	LoginPageObject loginPage;
 	DashboardPageObject dashboardPage;
 	ProductSearchPageObject productSearchPage;
@@ -31,30 +36,31 @@ public class Level_10_Admin_Upload_File extends BaseTest {
 		loginPage.enterToPasswordTextbox("admin");
 		dashboardPage = loginPage.clickToLoginButton();
 		
-		productSearchPage = dashboardPage.openSubMenuPageByName("Catalog", "Products");
+		dashboardPage.openSubMenuPageByName(driver, "Catalog", "Products");
+		productSearchPage = PageGeneratorManager.getProductSearchPage(driver);
 		
-		productSearchPage.enterToProductNameTextbox("Adobe Photoshop CS4");
+		productSearchPage.enterToProductNameTextbox("productName");
 		
 		productSearchPage.clickToSearchButton();
 		
-		productDetailPage = productSearchPage.clickToEditButtonByProductName("Adobe Photoshop CS4");
+		productDetailPage = productSearchPage.clickToEditButtonByProductName("productName");
 	}
 	
 	@Test
 	public void Admin_01_Paging() {
 		productDetailPage.clickToExpandPanelByName("Pictures");
 		
-		productDetailPage.uploadPictureByFileName("");
+		productDetailPage.uploadFileAtCardName(driver, "pictures", productAvatarImg);
 		
 		Assert.assertTrue(productDetailPage.isPictureUploadSuccessByFileName(""));
 		
-		productDetailPage.enterToAltTextbox("");
-		productDetailPage.enterToTitleTextbox("");
-		productDetailPage.enterToDisplayOrderTextbox("");
+		productDetailPage.enterToAltTextbox(productAvatarAlt);
+		productDetailPage.enterToTitleTextbox(productAvatarTitle);
+		productDetailPage.enterToDisplayOrderTextbox(productAvatarOrder);
 		
 		productDetailPage.clickToAddProductPictureButton();
 		
-		Assert.assertTrue(productDetailPage.isPictureImageDisplayed("", "", "", ""));
+		Assert.assertTrue(productDetailPage.isPictureImageDisplayed("productName", productAvatarOrder, productAvatarAlt, productAvatarTitle));
 		
 		productSearchPage = productDetailPage.clickToSaveButton();
 		
@@ -64,23 +70,21 @@ public class Level_10_Admin_Upload_File extends BaseTest {
 		
 		productSearchPage.clickToSearchButton();
 		
-		Assert.assertTrue(productDetailPage.isPictureImageUpdated("adobe-photoshop-cs4", "Adobe Photoshop CS4"));
+		Assert.assertTrue(productDetailPage.isPictureImageUpdated("productName", "productName"));
 		
-		productDetailPage = productSearchPage.clickToEditButtonByProductName("Adobe Photoshop CS4");
+		productDetailPage = productSearchPage.clickToEditButtonByProductName("productName");
 		
 		productDetailPage.clickToExpandPanelByName("Pictures");
 		
-		productDetailPage.clickToDeleteButtonAtPictureName(""); // Accept allert
-		
-		Assert.assertTrue(productDetailPage.isMessageDisplayedInTable("No data available in table"));
+		productDetailPage.clickToDeleteButtonAtPictureName("productAvatarTitle"); // Accept allert
 		
 		productSearchPage = productDetailPage.clickToSaveButton();
 		
-		productSearchPage.enterToProductNameTextbox("Adobe Photoshop CS4");
+		productSearchPage.enterToProductNameTextbox("productName");
 		
 		productSearchPage.clickToSearchButton();
 		
-		Assert.assertTrue(productDetailPage.isPictureImageUpdated("default-image", "Adobe Photoshop CS4"));
+		Assert.assertTrue(productDetailPage.isPictureImageUpdated("default-image", "productName"));
 	}
 		
 	@AfterClass
