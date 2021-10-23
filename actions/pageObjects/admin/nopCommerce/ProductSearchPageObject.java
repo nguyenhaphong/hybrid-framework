@@ -29,9 +29,9 @@ public class ProductSearchPageObject extends BasePage{
 		return PageGeneratorManager.getProductDetailPage(driver);
 	}
 
-	public boolean isSuccessMessageDisplayed(String string) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isSuccessMessageDisplayed(String messageName) {
+		waitForElementVisible(driver, ProductSearchPageUI.SUCCESS_MESSAGE_NAME, messageName);
+		return isElementDisplayed(driver, ProductSearchPageUI.SUCCESS_MESSAGE_NAME, messageName);
 	}
 
 }
