@@ -30,4 +30,8 @@ public class RegisterPageObject extends BasePage{
 		return isElementDisplayed(driver, RegisterPageUI.LOGIN_BUTTON);
 	}
 
+	public boolean isLoginButtonUndisplayed() {
+		return isElementUndisplayed(driver, RegisterPageUI.LOGIN_BUTTON);
+	}
+
 }

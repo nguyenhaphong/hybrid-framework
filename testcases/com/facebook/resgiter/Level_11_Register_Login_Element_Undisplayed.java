@@ -51,6 +51,8 @@ public class Level_11_Register_Login_Element_Undisplayed extends BaseTest {
 	@Test
 	public void Register_03_Element_Undisplayed_In_Dom() {
 		Assert.assertFalse(registerPage.isLoginButtonDisplayed());
+		
+		Assert.assertTrue(registerPage.isLoginButtonUndisplayed());
 	}
 	
 	@AfterClass
