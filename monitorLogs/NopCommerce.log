@@ -1,0 +1,8 @@
+[INFO ] [2021-10-25 16:00:38,164] Pre-Condition: Open browser'firefox' and navigate to 'https://demo.nopcommerce.com/'
+[INFO ] [2021-10-25 16:00:51,579] User_01_Register - Step 01: Verify Home page is displayed
+[INFO ] [2021-10-25 16:00:51,674] User_02_Login - Step 01: Click to Login link
+[INFO ] [2021-10-25 16:00:54,273] User_02_Login - Step 02: Enter to Email textbox with valuetesting66204@gmail.com
+[INFO ] [2021-10-25 16:00:54,332] User_02_Login - Step 03: Enter to Password textbox with value123456
+[INFO ] [2021-10-25 16:00:54,375] User_02_Login - Step 04: Click to Login button
+[INFO ] [2021-10-25 16:00:56,417] User_02_Login - Step 05: Verify Home Page is displayed
+[INFO ] [2021-10-25 16:01:36,974] Post-Condition: Close browser
