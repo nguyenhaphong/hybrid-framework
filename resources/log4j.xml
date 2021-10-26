@@ -41,7 +41,7 @@
 		<appender-ref ref="logfile" />
 		<appender-ref ref="file" />
 		<appender-ref ref="testng" />
-	</category>
+	</category> 
 
 	<root>
 		<priority value="warn" />
