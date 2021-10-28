@@ -16,7 +16,7 @@ import org.testng.Reporter;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
-	private WebDriver driver;
+	protected WebDriver driver;
 	protected final Log log;
 	
 	protected BaseTest() {

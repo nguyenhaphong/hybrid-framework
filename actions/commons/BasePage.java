@@ -17,13 +17,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import pageObjects.admin.nopCommerce.ProductSearchPageObject;
 import pageObjects.user.nopCommerce.MyAccountPageObject;
 import pageObjects.user.nopCommerce.OrderPageObject;
 import pageObjects.user.nopCommerce.PageGeneratorManager;
 import pageObjects.user.nopCommerce.SearchPageObject;
 import pageUIs.admin.nopCommerce.AdminBasePageUI;
-import pageUIs.user.nopCommerce.RegisterPageUI;
+import pageUIs.hrm.BasePageUI;
 import pageUIs.user.nopCommerce.UserBasePageUI;
 
 public abstract class BasePage {
@@ -307,6 +306,11 @@ public abstract class BasePage {
 		action.moveToElement(getElement(driver, locator)).perform();
 	}
 	
+	public void hoverToElement(WebDriver driver, String locator, String... params) {
+		action = new Actions(driver);
+		action.moveToElement(getElement(driver, getDynamicLocator(locator, params))).perform();
+	}
+	
 	public void doubleClickToElement(WebDriver driver, String locator) {
 		action = new Actions(driver);
 		action.doubleClick(getElement(driver, locator)).perform();
@@ -549,6 +553,52 @@ public abstract class BasePage {
 	public void clickToButtonByText(WebDriver driver, String buttonText) {
 		waitElemenClickable(driver, UserBasePageUI.DYNAMIC_BUTTON_BY_TEXT, buttonText);
 		clickToElement(driver, UserBasePageUI.DYNAMIC_BUTTON_BY_TEXT, buttonText);
+	}
+	
+	// HRM - Menu/SubMenu/ChildSubMenu
+	public void openMenuPage(WebDriver driver, String menuPageName) {
+		waitElemenClickable(driver, BasePageUI.MENU_BY_PAGE_NAME, menuPageName);
+		clickToElement(driver, BasePageUI.MENU_BY_PAGE_NAME, menuPageName);
+	}
+	
+	public void openSubMenuPage(WebDriver driver, String menuPageName, String subMenuPageName) {
+		waitElemenClickable(driver, BasePageUI.MENU_BY_PAGE_NAME, menuPageName);
+		clickToElement(driver, BasePageUI.MENU_BY_PAGE_NAME, menuPageName);
+		
+		waitElemenClickable(driver, BasePageUI.MENU_BY_PAGE_NAME, subMenuPageName);
+		clickToElement(driver, BasePageUI.MENU_BY_PAGE_NAME, subMenuPageName);
+	}
+	
+	public void openSubMenuPage(WebDriver driver, String menuPageName, String subMenuPageName, String childSubMenuPageName) {
+		waitElemenClickable(driver, BasePageUI.MENU_BY_PAGE_NAME, menuPageName);
+		clickToElement(driver, BasePageUI.MENU_BY_PAGE_NAME, menuPageName);
+		
+		waitForElementVisible(driver, BasePageUI.MENU_BY_PAGE_NAME, subMenuPageName);
+		hoverToElement(driver, BasePageUI.MENU_BY_PAGE_NAME, subMenuPageName);
+		
+		waitElemenClickable(driver, BasePageUI.MENU_BY_PAGE_NAME, childSubMenuPageName);
+		clickToElement(driver, BasePageUI.MENU_BY_PAGE_NAME, childSubMenuPageName);
+	}
+	
+	public void clickToButtonByID(WebDriver driver, String buttonIDName) {
+		waitElemenClickable(driver, BasePageUI.BUTTON_BY_ID, buttonIDName);
+		clickToElement(driver, BasePageUI.BUTTON_BY_ID, buttonIDName);
+	}
+	
+	public void enterTextboxByID(WebDriver driver, String textboxIDName, String value) {
+		waitElemenClickable(driver, BasePageUI.TEXTBOX_BY_ID, textboxIDName);
+		sendKeyToElement(driver, BasePageUI.TEXTBOX_BY_ID, value, textboxIDName);
+	}
+	
+	/**
+	 * Get textbox value by textbox id
+	 * @param driver
+	 * @param textBoxIDName
+	 * @return attribute value
+	 */
+	public String getTextboxValueByID(WebDriver driver, String textBoxIDName) {
+		waitForElementVisible(driver, BasePageUI.TEXTBOX_BY_ID, textBoxIDName);
+		return getElementAttributeValue(driver, BasePageUI.TEXTBOX_BY_ID, "value", textBoxIDName);
 	}
 
 	
