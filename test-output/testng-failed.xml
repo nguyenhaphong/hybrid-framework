@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Nop Commerce]">
-  <parameter name="url" value="https://demo.nopcommerce.com/"/>
-  <test thread-count="5" name="Run on FIREFOX(failed)">
-    <parameter name="browser" value="firefox"/>
+<suite name="Failed suite [Admin Nop Commerce]">
+  <parameter name="url" value="https://admin-demo.nopcommerce.com/login?ReturnUrl=%2Fadmin%2F"/>
+  <test thread-count="5" name="Run on Chrome(failed)">
+    <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.nopcommerce.login.Level_13_Register_Login_Log_Report">
+      <class name="com.nopcommerce.admin.Level_10_Admin_Upload_File">
         <methods>
-          <include name="Login_02_Login_To_System"/>
-          <include name="cleanBrowser"/>
+          <include name="Admin_01_Paging"/>
           <include name="beforeClass"/>
-          <include name="Login_01_Register_To_System"/>
+          <include name="cleanBrowser"/>
         </methods>
-      </class> <!-- com.nopcommerce.login.Level_13_Register_Login_Log_Report -->
+      </class> <!-- com.nopcommerce.admin.Level_10_Admin_Upload_File -->
     </classes>
-  </test> <!-- Run on FIREFOX(failed) -->
-</suite> <!-- Failed suite [Nop Commerce] -->
+  </test> <!-- Run on Chrome(failed) -->
+</suite> <!-- Failed suite [Admin Nop Commerce] -->
