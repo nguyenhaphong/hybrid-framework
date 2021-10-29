@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<<<<<<< HEAD
 <suite name="Failed suite [HRM]">
   <parameter name="url" value="https://opensource-demo.orangehrmlive.com"/>
   <test thread-count="5" name="Run on FIREFOX(failed)">
@@ -15,3 +16,20 @@
     </classes>
   </test> <!-- Run on FIREFOX(failed) -->
 </suite> <!-- Failed suite [HRM] -->
+=======
+<suite name="Failed suite [Admin Nop Commerce]">
+  <parameter name="url" value="https://admin-demo.nopcommerce.com/login?ReturnUrl=%2Fadmin%2F"/>
+  <test thread-count="5" name="Run on Chrome(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="com.nopcommerce.admin.Level_10_Admin_Upload_File">
+        <methods>
+          <include name="Admin_01_Paging"/>
+          <include name="beforeClass"/>
+          <include name="cleanBrowser"/>
+        </methods>
+      </class> <!-- com.nopcommerce.admin.Level_10_Admin_Upload_File -->
+    </classes>
+  </test> <!-- Run on Chrome(failed) -->
+</suite> <!-- Failed suite [Admin Nop Commerce] -->
+>>>>>>> 1c64150f28bcc5bd67d0d9adee94ca6e504e6351
