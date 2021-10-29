@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [HRM]">
+  <parameter name="url" value="https://opensource-demo.orangehrmlive.com"/>
+  <test thread-count="5" name="Run on FIREFOX(failed)">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="com.hrm.employee.Level_16_Live_Coding">
+        <methods>
+          <include name="cleanBrowser"/>
+          <include name="Employee_01_Add_New_Employee"/>
+          <include name="beforeClass"/>
+        </methods>
+      </class> <!-- com.hrm.employee.Level_16_Live_Coding -->
+    </classes>
+  </test> <!-- Run on FIREFOX(failed) -->
+</suite> <!-- Failed suite [HRM] -->

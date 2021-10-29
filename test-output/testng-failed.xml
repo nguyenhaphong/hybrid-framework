@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Nop Commerce]">
-  <parameter name="url" value="https://demo.nopcommerce.com/"/>
+<suite name="Failed suite [HRM]">
+  <parameter name="url" value="https://opensource-demo.orangehrmlive.com"/>
   <test thread-count="5" name="Run on FIREFOX(failed)">
     <parameter name="browser" value="firefox"/>
     <classes>
-      <class name="com.nopcommerce.login.Level_13_Register_Login_Log_Report">
+      <class name="com.hrm.employee.Level_16_Live_Coding">
         <methods>
-          <include name="Login_02_Login_To_System"/>
           <include name="cleanBrowser"/>
+          <include name="Employee_01_Add_New_Employee"/>
           <include name="beforeClass"/>
-          <include name="Login_01_Register_To_System"/>
         </methods>
-      </class> <!-- com.nopcommerce.login.Level_13_Register_Login_Log_Report -->
+      </class> <!-- com.hrm.employee.Level_16_Live_Coding -->
     </classes>
   </test> <!-- Run on FIREFOX(failed) -->
-</suite> <!-- Failed suite [Nop Commerce] -->
+</suite> <!-- Failed suite [HRM] -->

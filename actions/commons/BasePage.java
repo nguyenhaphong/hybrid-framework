@@ -27,6 +27,7 @@ import pageUIs.user.nopCommerce.UserBasePageUI;
 
 public abstract class BasePage {
 	
+	private WebDriver driver;
 	public void openPageUrl (WebDriver driver, String pageUrl) {
 		driver.get(pageUrl);
 	}
@@ -173,7 +174,7 @@ public abstract class BasePage {
 	public void selectDropwdownByText(WebDriver driver, String locator, String itemText, String... params) {
 		locator = getDynamicLocator(locator, params);
 		select = new Select(getElement(driver, locator));
-		select.deselectByVisibleText(itemText);
+		select.selectByVisibleText(itemText);
 	}
 	
 	
@@ -182,10 +183,15 @@ public abstract class BasePage {
 		select.selectByVisibleText(itemValue);
 	}
 	
-	public String selectItemInDropdown (WebDriver driver, String locator) {
+	public String getselectItemInDropdown (WebDriver driver, String locator) {
 		select = new Select(getElement(driver, locator));
-		return select.getFirstSelectedOption().getText();
-		
+		return select.getFirstSelectedOption().getText();	
+	}
+	
+	public String getselectItemInDropdown (WebDriver driver, String locator, String... params) {
+		locator = getDynamicLocator(locator, params);
+		select = new Select(getElement(driver, locator));
+		return select.getFirstSelectedOption().getText();	
 	}
 	
 	public boolean isDropdownMultiple(WebDriver driver, String locator) {
@@ -223,25 +229,32 @@ public abstract class BasePage {
 	}
 	
 	public String getElementText(WebDriver driver, String locator) {
-		return getElement(driver, locator).getText();
+		return getElement(driver, locator).getText().trim();
 	}
 	
 	public String getElementText(WebDriver driver, String locator, String... params) {
-		return getElement(driver, getDynamicLocator(locator, params)).getText();
+		return getElement(driver, getDynamicLocator(locator, params)).getText().trim();
 	}
 	
 	public int countElementNumber(WebDriver driver, String locator) {
 		return getElements(driver, locator).size();
 	}
 	
-	public void checkToCheckbox (WebDriver driver, String locator) {
-		if (!getElement(driver, locator).isSelected()) {
+	public void checkToCheckboxOrRadio (WebDriver driver, String locator) {
+		if (!isElementSelected(driver, locator)) {
+			getElement(driver, locator).click();
+		}
+	}
+	
+	public void checkToCheckboxOrRadio (WebDriver driver, String locator, String... params) {
+		locator = getDynamicLocator(locator, params);
+		if (!isElementSelected(driver, locator)) {
 			getElement(driver, locator).click();
 		}
 	}
 	
 	public void uncheckToCheckbox (WebDriver driver, String locator) {
-		if (getElement(driver, locator).isSelected()) {
+		if (isElementSelected(driver, locator)) {
 			getElement(driver, locator).click();
 		}
 	}
@@ -599,6 +612,44 @@ public abstract class BasePage {
 	public String getTextboxValueByID(WebDriver driver, String textBoxIDName) {
 		waitForElementVisible(driver, BasePageUI.TEXTBOX_BY_ID, textBoxIDName);
 		return getElementAttributeValue(driver, BasePageUI.TEXTBOX_BY_ID, "value", textBoxIDName);
+	}
+	
+	/**
+	 * Select item in dropwdown by id
+	 * @param driver
+	 * @param dropdownID
+	 * @param valueItem
+	 */
+	public void selectItemInDropdownByID(WebDriver driver, String dropdownID, String valueItem) {
+		waitElemenClickable(driver, BasePageUI.DROPDOWN_BY_ID, dropdownID);
+		selectDropwdownByText(driver, BasePageUI.DROPDOWN_BY_ID, valueItem, dropdownID);
+	}
+	
+	/**
+	 * Get selected text item in dropdown
+	 * @param driver
+	 * @param dropdownID
+	 * @return
+	 */
+	public String getSelectedValueInDropdownByID(WebDriver driver, String dropdownID) {
+		waitElemenClickable(driver, BasePageUI.DROPDOWN_BY_ID, dropdownID);
+		return getselectItemInDropdown(driver, BasePageUI.DROPDOWN_BY_ID, dropdownID);
+	}
+	
+	public void clickToCheckboxByLabel(WebDriver driver, String checkboxLabelName) {
+		waitElemenClickable(driver, BasePageUI.CHECKBOX_BY_LABEL, checkboxLabelName);
+		checkToCheckboxOrRadio(driver, BasePageUI.CHECKBOX_BY_LABEL, checkboxLabelName);
+	}
+	
+	public void clickToRadioByLabel(WebDriver driver, String radioLabelName) {
+		waitElemenClickable(driver, BasePageUI.RADIO_BY_LABEL, radioLabelName);
+		checkToCheckboxOrRadio(driver, BasePageUI.RADIO_BY_LABEL, radioLabelName);
+	}
+	
+	public String getValueInTableIDAtColumnNameAndRowIndex(WebDriver driver, String tableID, String headerName, String rowIndex) {
+		int columnIndex = getElementSize(driver, BasePageUI.TABLE_ROW_BY_COLUMN_INDEX_AND_ROW_INDEX, tableID, headerName) +1;
+		waitForElementVisible(driver, BasePageUI.TABLE_ROW_BY_COLUMN_INDEX_AND_ROW_INDEX, tableID, rowIndex, String.valueOf(columnIndex));
+		return getElementText(driver, BasePageUI.TABLE_ROW_BY_COLUMN_INDEX_AND_ROW_INDEX, tableID, rowIndex, String.valueOf(columnIndex));
 	}
 
 	
