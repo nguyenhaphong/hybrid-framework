@@ -17,6 +17,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageObjects.hrm.DashboardPO;
+import pageObjects.hrm.LoginPO;
+import pageObjects.hrm.PageGenerator;
 import pageObjects.user.nopCommerce.MyAccountPageObject;
 import pageObjects.user.nopCommerce.OrderPageObject;
 import pageObjects.user.nopCommerce.PageGeneratorManager;
@@ -434,6 +437,18 @@ public abstract class BasePage {
 
 		return explicitWait.until(jQueryLoad) && explicitWait.until(jsLoad);
 	}
+	
+	public boolean isJQueryAjaxLoadedSuccess(WebDriver driver) {
+		explicitWait = new WebDriverWait(driver, longTimeout);
+		jsExecutor =(JavascriptExecutor) driver;
+		ExpectedCondition<Boolean> jQueryLoad = new ExpectedCondition<Boolean>() {
+			@Override
+			public Boolean apply(WebDriver driver) {
+				return (Boolean) jsExecutor.executeScript("return (window.jQuery != null) && (jQuery.active === 0);");
+			}
+		};
+		return explicitWait.until(jQueryLoad);
+	}
 
 	public String getElementValidationMessage(WebDriver driver, String locator) {
 		jsExecutor = (JavascriptExecutor) driver;
@@ -650,6 +665,26 @@ public abstract class BasePage {
 		int columnIndex = getElementSize(driver, BasePageUI.TABLE_ROW_BY_COLUMN_INDEX_AND_ROW_INDEX, tableID, headerName) +1;
 		waitForElementVisible(driver, BasePageUI.TABLE_ROW_BY_COLUMN_INDEX_AND_ROW_INDEX, tableID, rowIndex, String.valueOf(columnIndex));
 		return getElementText(driver, BasePageUI.TABLE_ROW_BY_COLUMN_INDEX_AND_ROW_INDEX, tableID, rowIndex, String.valueOf(columnIndex));
+	}
+	
+	public LoginPO logoutToSystem(WebDriver driver) {
+		waitElemenClickable(driver, BasePageUI.WELCOME_USER_LINK);
+		clickToElement(driver, BasePageUI.WELCOME_USER_LINK);
+		waitElemenClickable(driver, BasePageUI.LOGOUT_LINK);
+		clickToElement(driver, BasePageUI.LOGOUT_LINK);
+		return PageGenerator.getLoginPage(driver);
+	}
+	
+	public DashboardPO loginToSystem(WebDriver driver, String userName, String password) {
+		waitForAllElementVisible(driver, BasePageUI.USER_LOGIN_TEXTBOX);
+		sendKeyToElement(driver, BasePageUI.USER_LOGIN_TEXTBOX, userName);
+		sendKeyToElement(driver, BasePageUI.PASSWORD_LOGIN_TEXTBOX, password);
+		clickToElement(driver, BasePageUI.LOGIN_BUTTON);
+		return PageGenerator.getDashboardPage(driver);
+	}
+	
+	public void uploadImage(WebDriver driver, String filePath) {
+		getElement(driver, BasePageUI.UPLOAD_FILE).sendKeys(filePath);
 	}
 
 	

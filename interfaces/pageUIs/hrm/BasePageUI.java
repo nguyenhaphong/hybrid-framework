@@ -9,4 +9,12 @@ public class BasePageUI {
 	public static final String RADIO_BY_LABEL = "//label[text()='%s']/preceding-sibling::input";
 	public static final String TABLE_HEADER_BY_ID_AND_NAME = "//table[@id='%s']//th[string()='%s']/preceding-sibling::th";
 	public static final String TABLE_ROW_BY_COLUMN_INDEX_AND_ROW_INDEX = "//table[@id='%s']/tbody/tr[%s]/td[%s]";
+	
+	// Locator cố định
+	public static final String WELCOME_USER_LINK = "//a[@id='welcome']";
+	public static final String LOGOUT_LINK = "//div[@id='welcome-menu']//a[text()='Logout']";
+	public static final String USER_LOGIN_TEXTBOX = "//input[@id='txtUsername']";
+	public static final String PASSWORD_LOGIN_TEXTBOX = "//input[@id='txPassname']";
+	public static final String LOGIN_BUTTON = "//input[@id='btnLogin']";
+	public static final String UPLOAD_FILE ="input[@type='file']";
 }
