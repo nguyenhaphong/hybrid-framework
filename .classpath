@@ -37,5 +37,8 @@
 	<classpathentry kind="lib" path="libExtentV3/jcommander-1.48.jar"/>
 	<classpathentry kind="lib" path="libExtentV3/mongodb-driver-3.3.0.jar"/>
 	<classpathentry kind="lib" path="libExtentV3/mongodb-driver-core-3.3.0.jar"/>
+	<classpathentry kind="lib" path="libararies/javafaker-1.0.1.jar"/>
+	<classpathentry kind="lib" path="libararies/generex-1.0.2.jar"/>
+	<classpathentry kind="lib" path="libararies/snakeyaml-1.23.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
