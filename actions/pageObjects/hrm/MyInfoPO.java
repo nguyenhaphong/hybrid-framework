@@ -17,11 +17,6 @@ public class MyInfoPO extends BasePage {
 		clickToElement(driver, MyInfoPageUI.AVATA_IMAGE);	
 	}
 
-	public boolean isUploadAvatarSuccessMessageDisplayed() {
-		waitForElementVisible(driver, MyInfoPageUI.UPLOAD_AVATAR_SUCCESS_MESSAGE);
-		return isElementDisplayed(driver, MyInfoPageUI.UPLOAD_AVATAR_SUCCESS_MESSAGE);
-	}
-
 	public boolean isNewAvatarImageDisplayed() {
 		waitElemenClickable(driver, MyInfoPageUI.AVATA_IMAGE);
 		int imageWidth = Integer.parseInt(getElementAttributeValue(driver, MyInfoPageUI.AVATA_IMAGE, "width"));

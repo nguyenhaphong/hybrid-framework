@@ -9,6 +9,7 @@ encoding//testcases/com/hrm/employee/Level_16_Live_Coding.java=UTF-8
 encoding//testcases/com/jquerry/datatable/Level_09_Datatable.java=UTF-8
 encoding//testcases/com/liveguru/login/Level_03_Register_Login_Page_Object.java=UTF-8
 encoding//testcases/com/liveguru/login/Level_04_Register_Login_Multiple_Browser.java=UTF-8
+encoding//testcases/com/liveguru/login/Level_17_Independence_Test.java=UTF-8
 encoding//testcases/com/nopcommerce/admin/Level_10_Admin_Upload_File.java=UTF-8
 encoding//testcases/com/nopcommerce/login/Level_03_Register_Login_Page_Object.java=UTF-8
 encoding//testcases/com/nopcommerce/login/Level_04_Register_Login_Multiple_Browser.java=UTF-8
@@ -18,3 +19,4 @@ encoding//testcases/com/nopcommerce/login/Level_07_Register_Login_Page_Switch_Pa
 encoding//testcases/com/nopcommerce/login/Level_08_Register_Login_Page_Dynamic_Locator.java=UTF-8
 encoding//testcases/com/nopcommerce/login/Level_13_Register_Login_Log_Report.java=UTF-8
 encoding//testcases/com/nopcommerce/login/Level_15_Register_Login_Pattern_Object.java=UTF-8
+encoding//testcases/com/saucelab/sort/Level_18_Sort.java=UTF-8

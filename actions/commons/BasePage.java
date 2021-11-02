@@ -26,6 +26,7 @@ import pageObjects.user.nopCommerce.PageGeneratorManager;
 import pageObjects.user.nopCommerce.SearchPageObject;
 import pageUIs.admin.nopCommerce.AdminBasePageUI;
 import pageUIs.hrm.BasePageUI;
+import pageUIs.hrm.MyInfoPageUI;
 import pageUIs.user.nopCommerce.UserBasePageUI;
 
 public abstract class BasePage {
@@ -171,7 +172,7 @@ public abstract class BasePage {
 	
 	public void selectDropwdownByText(WebDriver driver, String locator, String itemText) {
 		select = new Select(getElement(driver, locator));
-		select.deselectByVisibleText(itemText);
+		select.selectByVisibleText(itemText);
 	}
 	
 	public void selectDropwdownByText(WebDriver driver, String locator, String itemText, String... params) {
@@ -303,6 +304,14 @@ public abstract class BasePage {
 	
 	public boolean isElementEnabled(WebDriver driver, String locator) {
 		return getElement(driver, locator).isEnabled();
+	}
+	
+	public boolean isElementEnabled(WebDriver driver, String locator, String... params) {
+		return getElement(driver, getDynamicLocator(locator, params)).isEnabled();
+	}
+	
+	public boolean isElementSelected(WebDriver driver, String locator, String... params) {
+		return getElement(driver, getDynamicLocator(locator, params)).isSelected();
 	}
 	
 	public boolean isElementSelected(WebDriver driver, String locator) {
@@ -636,7 +645,7 @@ public abstract class BasePage {
 	 * @param valueItem
 	 */
 	public void selectItemInDropdownByID(WebDriver driver, String dropdownID, String valueItem) {
-		waitElemenClickable(driver, BasePageUI.DROPDOWN_BY_ID, dropdownID);
+		waitForElementVisible(driver, BasePageUI.DROPDOWN_BY_ID, dropdownID);
 		selectDropwdownByText(driver, BasePageUI.DROPDOWN_BY_ID, valueItem, dropdownID);
 	}
 	
@@ -651,9 +660,19 @@ public abstract class BasePage {
 		return getselectItemInDropdown(driver, BasePageUI.DROPDOWN_BY_ID, dropdownID);
 	}
 	
+	/**
+	 * Click to checkbox by label text
+	 * @param driver
+	 * @param checkboxLabelName
+	 */
 	public void clickToCheckboxByLabel(WebDriver driver, String checkboxLabelName) {
 		waitElemenClickable(driver, BasePageUI.CHECKBOX_BY_LABEL, checkboxLabelName);
 		checkToCheckboxOrRadio(driver, BasePageUI.CHECKBOX_BY_LABEL, checkboxLabelName);
+	}
+	
+	public boolean isRadioButtonSelectedByLabel(WebDriver driver, String labelName) {
+		waitForElementVisible(driver, BasePageUI.RADIO_BY_LABEL, labelName);
+		return isElementSelected(driver, BasePageUI.RADIO_BY_LABEL, labelName);
 	}
 	
 	public void clickToRadioByLabel(WebDriver driver, String radioLabelName) {
@@ -685,6 +704,16 @@ public abstract class BasePage {
 	
 	public void uploadImage(WebDriver driver, String filePath) {
 		getElement(driver, BasePageUI.UPLOAD_FILE).sendKeys(filePath);
+	}
+	
+	public boolean isUpSuccessMessageDisplayed(WebDriver driver, String messageValue) {
+		waitForElementVisible(driver, BasePageUI.SUCCESS_MESSAGE_VALUE, messageValue);
+		return isElementDisplayed(driver, BasePageUI.SUCCESS_MESSAGE_VALUE, messageValue);
+	}
+	
+	public boolean isFieldsEnabledByName(WebDriver driver, String fieldID) {
+		waitForElementVisible(driver, BasePageUI.ANY_FIELD_BY_ID, fieldID);
+		return isElementEnabled(driver, BasePageUI.ANY_FIELD_BY_ID, fieldID);
 	}
 
 	

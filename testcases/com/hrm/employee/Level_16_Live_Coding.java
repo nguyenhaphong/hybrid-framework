@@ -16,7 +16,7 @@ import pageObjects.hrm.MyInfoPO;
 
 public class Level_16_Live_Coding extends BaseTest {
 	String adminUserName, adminPassword, empFirstName, empLastName, empUserName, empPassWord, employeeID, statusValue;
-	String empFullName;
+	String empFullName, editEmpFirstName, editEmpLastName, editEmpGender, editEmpMaritalStatus, editEmpNationality;
 	String avatarFilePath =  GlobalConstants.UPLOAD_FOLDER_PATH + "Anh1.jpg";
 	
 	@Parameters({"browser", "url"})
@@ -34,6 +34,12 @@ public class Level_16_Live_Coding extends BaseTest {
 		empUserName = "automationfc";
 		empPassWord = "automation123";
 		empFullName = empFirstName + " " + empLastName;
+		
+		editEmpFirstName = "John";
+		editEmpLastName = "Wick";
+		editEmpGender = "Male";
+		editEmpMaritalStatus = "Single";
+		editEmpNationality = "Vietnamese";
 		
 		log.info("Pre-Condition - Step 02: Login with Admin role");
 		dashboardPage = loginPage.loginToSystem(driver, adminUserName, adminPassword);
@@ -75,10 +81,10 @@ public class Level_16_Live_Coding extends BaseTest {
 		
 		log.info("Add_New_01 - Step 11: Click to 'Save' button");
 		addEmployeePage.clickToButtonByID(driver, "btnSave");
-		personalDetailPage = PageGenerator.getMyInfoPage(driver);
+		myInfoPage = PageGenerator.getMyInfoPage(driver);
 		
 		log.info("Add_New_01 - Step 12: Open 'Employee List' page");
-		personalDetailPage.openSubMenuPage(driver, "PIM", "Employee List");
+		myInfoPage.openSubMenuPage(driver, "PIM", "Employee List");
 		employeeListPage = PageGenerator.getEmployeeListPage(driver);
 		
 		log.info("Add_New_01 - Step 13: Enter valid info to 'Employee Name' textbox");
@@ -105,27 +111,98 @@ public class Level_16_Live_Coding extends BaseTest {
 		
 		log.info("Upload_Avatar_02 - Step 02: Open Personal Detail Page");
 		dashboardPage.openMenuPage(driver, "My Info");
-		personalDetailPage = PageGenerator.getMyInfoPage(driver);
+		myInfoPage = PageGenerator.getMyInfoPage(driver);
 		
 		log.info("Upload_Avatar_02 - Step 03: Click to Change Photo image");
-		personalDetailPage.clickToChangePhotoImage();
+		myInfoPage.clickToChangePhotoImage();
 		
 		log.info("Upload_Avatar_02 - Step 04: Upload new Avatar image");
-		personalDetailPage.uploadImage(driver, avatarFilePath);
+		myInfoPage.uploadImage(driver, avatarFilePath);
 		
 		log.info("Upload_Avatar_02 - Step 05: Click to Upload button");
-		personalDetailPage.clickToButtonByID(driver, "btnSave");
+		myInfoPage.clickToButtonByID(driver, "btnSave");
 		
 		log.info("Upload_Avatar_02 - Step 06: Verify Success message displayed");
-		verifyTrue(personalDetailPage.isUploadAvatarSuccessMessageDisplayed());
+		verifyTrue(myInfoPage.isUpSuccessMessageDisplayed(driver, "Successfully Uploaded"));
 		
 		log.info("Upload_Avatar_02 - Step 07: Verify new Avatar image is displayed");
-		verifyTrue(personalDetailPage.isNewAvatarImageDisplayed());
+		verifyTrue(myInfoPage.isNewAvatarImageDisplayed());
 	}
 	
 	@Test
 	public void Employee_03_Personal_Details() {
+		log.info("Personal_Details_03 - Step 01: Open 'Personal Details' tab at Side bar");
+		myInfoPage.openTabAtSideBarByName("Personal Details");
 		
+		log.info("Personal_Details_03 - Step 02: Verify all fields at 'Personal Details' tab are disabled");
+		verifyFalse(myInfoPage.isFieldsEnabledByName(driver, "personal_txtEmpFirstName"));
+		verifyFalse(myInfoPage.isFieldsEnabledByName(driver, "personal_txtEmpLastName"));
+		verifyFalse(myInfoPage.isFieldsEnabledByName(driver, "personal_txtEmployeeId"));
+		verifyFalse(myInfoPage.isFieldsEnabledByName(driver, "personal_txtLicenNo"));
+		verifyFalse(myInfoPage.isFieldsEnabledByName(driver, "personal_txtNICNo"));
+		verifyFalse(myInfoPage.isFieldsEnabledByName(driver, "personal_txtSINNo"));
+		verifyFalse(myInfoPage.isFieldsEnabledByName(driver, "personal_optGender_1"));
+		verifyFalse(myInfoPage.isFieldsEnabledByName(driver, "personal_optGender_2"));
+		verifyFalse(myInfoPage.isFieldsEnabledByName(driver, "personal_cmbMarital"));
+		verifyFalse(myInfoPage.isFieldsEnabledByName(driver, "personal_cmbNation"));
+		verifyFalse(myInfoPage.isFieldsEnabledByName(driver, "personal_DOB"));
+		
+		log.info("Personal_Details_03 - Step 03: Click to 'Edit' button at 'Personal Details' form");
+		myInfoPage.clickToButtonByID(driver, "btnSave");
+		
+		log.info("Personal_Details_03 - Step 04: Verify 'Employee ID' textbox is disabled");
+		verifyFalse(myInfoPage.isFieldsEnabledByName(driver, "personal_txtEmployeeId"));
+		
+		log.info("Personal_Details_03 - Step 05: Verfy 'Driver's License Number' textbox is disabled");
+		verifyFalse(myInfoPage.isFieldsEnabledByName(driver, "personal_txtLicenNo"));
+		
+		log.info("Personal_Details_03 - Step 06: Verfy 'SSN Number' textbox is disabled");
+		verifyFalse(myInfoPage.isFieldsEnabledByName(driver, "personal_txtNICNo"));
+		
+		log.info("Personal_Details_03 - Step 07: Verfy 'SIN Number' textbox is disabled");
+		verifyFalse(myInfoPage.isFieldsEnabledByName(driver, "personal_txtSINNo"));
+		
+		log.info("Personal_Details_03 - Step 08: Verfy 'Date of Birth' textbox is disabled");
+		verifyFalse(myInfoPage.isFieldsEnabledByName(driver, "personal_DOB"));
+		
+		log.info("Personal_Details_03 - Step 09: Enter new value to 'First Name' textbox");
+		myInfoPage.enterTextboxByID(driver, "personal_txtEmpFirstName", editEmpFirstName);
+		
+		log.info("Personal_Details_03 - Step 10: Enter new value to 'Last Name' textbox");
+		myInfoPage.enterTextboxByID(driver, "personal_txtEmpLastName", editEmpLastName);
+		
+		log.info("Personal_Details_03 - Step 11: Select new value to 'Gender' radio button");
+		myInfoPage.clickToRadioByLabel(driver, editEmpGender);
+		
+		log.info("Personal_Details_03 - Step 12: Select new value to 'Marital Status' dropdown");
+		myInfoPage.selectItemInDropdownByID(driver, "personal_cmbMarital", editEmpMaritalStatus);
+		
+		log.info("Personal_Details_03 - Step 13: Select new value to 'Nationality' dropdown");
+		myInfoPage.selectItemInDropdownByID(driver, "personal_cmbNation", editEmpNationality);
+		
+		log.info("Personal_Details_03 - Step 14: Click to 'Save' button at 'Personal Details' form");
+		myInfoPage.clickToButtonByID(driver, "btnSave");
+		
+		log.info("Personal_Details_03 - Step 15: Verify Success message is displayed");
+		verifyTrue(myInfoPage.isUpSuccessMessageDisplayed(driver, "Successfully Saved"));
+		
+		log.info("Personal_Details_03 - Step 16: Verify 'First Name' textbox is updated success");
+		verifyEquals(myInfoPage.getTextboxValueByID(driver, "personal_txtEmpFirstName"), editEmpFirstName);
+		
+		log.info("Personal_Details_03 - Step 17: Verify 'Last Name' textbox is updated success");
+		verifyEquals(myInfoPage.getTextboxValueByID(driver, "personal_txtEmpLastName"), editEmpLastName);
+		
+		log.info("Personal_Details_03 - Step 18: Verify 'Gender' radio button is updated success");
+		verifyTrue(myInfoPage.isRadioButtonSelectedByLabel(driver, editEmpGender));
+		
+		log.info("Personal_Details_03 - Step 19: Verify 'Marital Status' dropdown is updated success");
+		verifyEquals(myInfoPage.getSelectedValueInDropdownByID(driver, "personal_cmbMarital"), editEmpMaritalStatus);
+		
+		log.info("Personal_Details_03 - Step 20: Verify 'Nationality' dropdown is updated success");
+		verifyEquals(myInfoPage.getSelectedValueInDropdownByID(driver, "personal_cmbNation"), editEmpNationality);
+		
+		log.info("Personal_Details_03 - Step 21: Verify 'Employee Id' textbox value is correct");
+		verifyEquals(myInfoPage.getTextboxValueByID(driver, "personal_txtEmployeeId"), employeeID);
 		
 	}
 	
@@ -180,6 +257,6 @@ public class Level_16_Live_Coding extends BaseTest {
 	AddEmployeePO addEmployeePage;
 	DashboardPO dashboardPage;
 	EmployeeListPO employeeListPage;
-	MyInfoPO personalDetailPage;
+	MyInfoPO myInfoPage;
 	
 }
