@@ -16,7 +16,7 @@ import pageObjects.hrm.PageGenerator;
 import utilities.DataUtil;
 import pageObjects.hrm.MyInfoPO;
 
-public class Level_19_Fake_Data extends BaseTest {
+public class Level_20_Data_Test_1_Into_Class extends BaseTest {
 	String adminUserName, adminPassword, empFirstName, empLastName, empUserName, empPassWord, employeeID, statusValue;
 	String empFullName, editEmpFirstName, editEmpLastName, editEmpGender, editEmpMaritalStatus, editEmpNationality;
 	String avatarFilePath =  GlobalConstants.UPLOAD_FOLDER_PATH + "Anh1.jpg";

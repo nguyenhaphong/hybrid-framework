@@ -40,5 +40,8 @@
 	<classpathentry kind="lib" path="libararies/javafaker-1.0.1.jar"/>
 	<classpathentry kind="lib" path="libararies/generex-1.0.2.jar"/>
 	<classpathentry kind="lib" path="libararies/snakeyaml-1.23.jar"/>
+	<classpathentry kind="lib" path="libJackson/jackson-annotations-2.10.0.jar"/>
+	<classpathentry kind="lib" path="libJackson/jackson-core-2.10.0.jar"/>
+	<classpathentry kind="lib" path="libJackson/jackson-databind-2.10.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

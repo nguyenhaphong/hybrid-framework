@@ -6,17 +6,18 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.hrm.datatest.EmployeeData;
+
 import commons.BaseTest;
 import commons.GlobalConstants;
 import pageObjects.hrm.AddEmployeePO;
 import pageObjects.hrm.DashboardPO;
 import pageObjects.hrm.EmployeeListPO;
 import pageObjects.hrm.LoginPO;
-import pageObjects.hrm.PageGenerator;
-import utilities.DataUtil;
 import pageObjects.hrm.MyInfoPO;
+import pageObjects.hrm.PageGenerator;
 
-public class Level_19_Fake_Data extends BaseTest {
+public class Level_20_Data_Test_4_Data_Driven extends BaseTest {
 	String adminUserName, adminPassword, empFirstName, empLastName, empUserName, empPassWord, employeeID, statusValue;
 	String empFullName, editEmpFirstName, editEmpLastName, editEmpGender, editEmpMaritalStatus, editEmpNationality;
 	String avatarFilePath =  GlobalConstants.UPLOAD_FOLDER_PATH + "Anh1.jpg";
@@ -27,20 +28,13 @@ public class Level_19_Fake_Data extends BaseTest {
 		log.info("Pre-Condition: Step 01: Open browser'" + browserName + "' and navigate to '" + appUrl + "'");
 		driver = getBrowserDriver(browserName, appUrl);
 		loginPage = PageGenerator.getLoginPage(driver);
-		fakedata = DataUtil.getData();
+		
+		employeeData = EmployeeData.getEmployee();
 		
 		statusValue = "Enabled";
 		adminUserName = "Admin";
 		adminPassword = "admin123";
-		empFirstName = fakedata.getFirstName();
-		empLastName = fakedata.getLastName();
-		empFullName = empFirstName + " " + empLastName;
-		empUserName = fakedata.getUsername();
-		empPassWord = fakedata.getPassword();
 		
-		editEmpFirstName = fakedata.getEditFirstName();
-		editEmpLastName = fakedata.getEditLastName();
-		editEmpGender = fakedata.geEdittFullName();
 		editEmpMaritalStatus = "Single";
 		editEmpNationality = "Vietnamese";
 		
@@ -59,10 +53,10 @@ public class Level_19_Fake_Data extends BaseTest {
 		addEmployeePage = PageGenerator.getAddEmployeePage(driver);
 		
 		log.info("Add_New_01 - Step 03: Enter valid info to 'First Name' textbox");
-		addEmployeePage.enterTextboxByID(driver, "firstName", empFirstName);
+		addEmployeePage.enterTextboxByID(driver, "firstName", employeeData.getFirstname());
 		
 		log.info("Add_New_01 - Step 04: Enter valid info to 'Last Name' textbox");
-		addEmployeePage.enterTextboxByID(driver, "lastName", empLastName);
+		addEmployeePage.enterTextboxByID(driver, "lastName", employeeData.getLastname());
 		
 		log.info("Add_New_01 - Step 05: Get value of 'Employee ID'");
 		employeeID = addEmployeePage.getTextboxValueByID(driver, "employeeId");
@@ -71,13 +65,13 @@ public class Level_19_Fake_Data extends BaseTest {
 		addEmployeePage.clickToCheckboxByLabel(driver, "Create Login Details");
 		
 		log.info("Add_New_01 - Step 07: Enter valid info to 'User Name' textbox");
-		addEmployeePage.enterTextboxByID(driver, "user_name", empUserName);;
+		addEmployeePage.enterTextboxByID(driver, "user_name", employeeData.getFirstname());;
 		
 		log.info("Add_New_01 - Step 08: Enter valid info to 'Password' textbox");
-		addEmployeePage.enterTextboxByID(driver, "user_password", empPassWord);;
+		addEmployeePage.enterTextboxByID(driver, "user_password", employeeData.getPassword());;
 		
 		log.info("Add_New_01 - Step 09: Enter valid info to 'Confirm Password' textbox");
-		addEmployeePage.enterTextboxByID(driver, "re_password", empPassWord);;
+		addEmployeePage.enterTextboxByID(driver, "re_password", employeeData.getPassword());;
 		
 		log.info("Add_New_01 - Step 10: Select '" + statusValue + "' value in 'Status' dropdown");
 		addEmployeePage.selectItemInDropdownByID(driver, "status", statusValue);
@@ -92,7 +86,7 @@ public class Level_19_Fake_Data extends BaseTest {
 		
 		log.info("Add_New_01 - Step 13: Enter valid info to 'Employee Name' textbox");
 		employeeListPage.sleepInSecond(5);
-		employeeListPage.enterTextboxByID(driver, "empsearch_employee_name_empName", empFullName);
+		employeeListPage.enterTextboxByID(driver, "empsearch_employee_name_empName", employeeData.getFullname());
 		employeeListPage.sleepInSecond(5);
 		
 		log.info("Add_New_01 - Step 14: Click to 'Search' button");
@@ -261,5 +255,5 @@ public class Level_19_Fake_Data extends BaseTest {
 	DashboardPO dashboardPage;
 	EmployeeListPO employeeListPage;
 	MyInfoPO myInfoPage;
-	DataUtil fakedata;
+	EmployeeData employeeData;
 }

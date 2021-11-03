@@ -17,12 +17,24 @@ public class DataUtil {
 		return faker.name().firstName();
 	}
 	
+	public String getEditFirstName() {
+		return faker.name().firstName();
+	}
+	
 	public String getLastName() {
+		return faker.name().lastName();
+	}
+	
+	public String getEditLastName() {
 		return faker.name().lastName();
 	}
 	
 	public String getFullName() {
 		return getFirstName() + " " + getLastName();
+	}
+	
+	public String geEdittFullName() {
+		return getEditFirstName() + " " + getEditLastName();
 	}
 	
 	public String getEmailAddress() {
