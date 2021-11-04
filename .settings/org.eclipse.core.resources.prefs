@@ -3,6 +3,7 @@ encoding//actions/commons/BasePage.java=UTF-8
 encoding//actions/commons/BaseTest.java=UTF-8
 encoding//actions/pageObjects/admin/nopCommerce/ProductDetailPageObject.java=UTF-8
 encoding//interfaces/pageUIs/hrm/BasePageUI.java=UTF-8
+encoding//testcases/com/bankguru/payment/Level_21_Multiple_Enviroment.java=UTF-8
 encoding//testcases/com/facebook/resgiter/Level_11_Register_Login_Element_Undisplayed.java=UTF-8
 encoding//testcases/com/facebook/resgiter/Level_12_Register_Login_Assert_Verify.java=UTF-8
 encoding//testcases/com/hrm/employee/Level_16_Live_Coding.java=UTF-8

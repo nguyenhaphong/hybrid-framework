@@ -27,7 +27,10 @@ public class BaseTest {
 	private enum BROWSER {
 		CHROME, FIREFOX, IE, SAFARI, EDGE_LEGACY, EDGE_CHROMIUM, H_CHROME, H_FIREFOX;
 	}
-
+	
+	private enum ENVIROMENT {
+		DEV, TESTING, STAGING, PRODUCTION;
+	}
 	
 	protected  WebDriver getBrowserDriver(String browserName) {
 		BROWSER browser = BROWSER.valueOf(browserName.toUpperCase());
@@ -69,6 +72,14 @@ public class BaseTest {
 		driver.manage().window().maximize();
 		driver.get(appUrl);
 		return driver;
+	}
+	
+	private String getEnviromentValue(String enviromentName) {
+		String envUrl = null;
+		if(enviromentName.equalsIgnoreCase("dev")) {
+			envUrl = "http://demo.guru99.com/v1/";
+		} else if
+		return null;
 	}
 	
 	protected String getRandomEmail() {
